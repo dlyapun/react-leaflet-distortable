@@ -1,0 +1,31 @@
+{
+  "name": "react-leaflet-distortable",
+  "version": "1.0.0",
+  "description": "Overlay for leaflet-distortable",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "dlyapun/react-leaflet-distortable",
+  "keywords": [
+    "react",
+    "leaflet",
+    "distortable",
+    "rotate",
+    "image"
+  ],
+  "author": "Dmytro Lyapun (Public Lab)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dlyapun/react-leaflet-distortable/issues"
+  },
+  "homepage": "https://github.com/dlyapun/react-leaflet-distortable#readme",
+  "dependencies": {
+    "leaflet-distortableimage": "^0.21.9",
+    "react-leaflet": "^4.2.1"
+  }
+}
