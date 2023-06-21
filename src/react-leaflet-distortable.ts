@@ -1,6 +1,6 @@
-import { createLayerComponent, updateMediaOverlay } from "@react-leaflet/core";
+import { createLayerComponent, updateMediaOverlay, LayerProps } from "@react-leaflet/core";
 import "leaflet";
-import L from "leaflet";
+import * as L from 'leaflet';
 import "leaflet-toolbar";
 import "leaflet-distortableimage";
 import "leaflet-distortableimage/dist/leaflet.distortableimage";
@@ -10,7 +10,8 @@ import "leaflet-toolbar/dist/leaflet.toolbar.css";
 import "leaflet-distortableimage/dist/leaflet.distortableimage.css";
 import { ReactLeafletDistortableProps } from "./types";
 
-function createDistortableImageOverlay(props, context) {
+
+function createLeafletElement(props, context) {
   const img = new L.distortableImageOverlay(props.url, {
     mode: props.mode,
     actions: props.actions,
@@ -30,12 +31,11 @@ function createDistortableImageOverlay(props, context) {
   };
 }
 
-function updateDistortableImageOverlay(overlay, props, prevProps) {
+function updateLeafletElement(overlay, props, prevProps) {
   updateMediaOverlay(overlay, props, prevProps);
   if (props.url !== prevProps.url) {
     overlay.setUrl(props.url);
   }
 }
 
-const ReactLeafletDistortable: ReactLeafletDistortableProps = createLayerComponent(createDistortableImageOverlay, updateDistortableImageOverlay);
-export default ReactLeafletDistortable;
+export default createLayerComponent<L.Layer, LayerProps & ReactLeafletDistortableProps>(createLeafletElement, updateLeafletElement);
